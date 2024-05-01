@@ -23,13 +23,3 @@ variable "public_subnets" {
   description = "CIDR ranges for public subnets."
   type        = list(string)
 }
-
-variable "private_subnet_tags" {
-  description = "Private subnet tags."
-  type        = map(any)
-}
-
-variable "public_subnet_tags" {
-  description = "Private subnet tags."
-  type        = map(any)
-}
