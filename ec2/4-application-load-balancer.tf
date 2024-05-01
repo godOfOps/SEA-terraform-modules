@@ -3,7 +3,7 @@ resource "aws_lb" "web_alb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.elb_sg.id]
-  subnets            = var.subnet_ids
+  subnets            = var.public_subnet_ids
 
   tags = {
     Name        = "${var.env}-web-alb"

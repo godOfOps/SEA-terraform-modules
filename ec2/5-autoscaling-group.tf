@@ -3,7 +3,7 @@ resource "aws_autoscaling_group" "ec2_asg" {
   desired_capacity    = var.scaling_config["desired_capacity"]
   max_size            = var.scaling_config["max_size"]
   min_size            = var.scaling_config["min_size"]
-  vpc_zone_identifier = var.subnet_ids
+  vpc_zone_identifier = var.private_subnet_ids
   target_group_arns   = [aws_lb_target_group.ec2_asg_tg.arn]
   health_check_type   = "EC2"
   launch_template {
