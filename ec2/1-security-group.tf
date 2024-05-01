@@ -43,8 +43,8 @@ resource "aws_security_group" "ec2_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    description     = "Allow SSH with Ec2 Instance connect Endpoint"
-    security_groups = [aws_security_group.ec2_sg.id]
+    description = "Allow SSH with Ec2 Instance connect Endpoint"
+    self        = true
   }
 
   egress {
