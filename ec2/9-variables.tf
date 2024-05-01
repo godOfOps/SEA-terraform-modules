@@ -8,6 +8,11 @@ variable "vpc_id" {
   type        = string
 }
 
+variable "subnet_ids" {
+  description = "List of subnet IDs"
+  type        = list(string)
+}
+
 variable "ingress_ports_elb" {
   description = "Allow Inbound Access to following ports"
   type        = list(number)
@@ -46,11 +51,6 @@ variable "scaling_config" {
     max_size         = 5
     desired_capacity = 2
   }
-}
-
-variable "subnet_ids" {
-  description = "List of subnet IDs"
-  type        = list(string)
 }
 
 variable "average_cpu_util" {
