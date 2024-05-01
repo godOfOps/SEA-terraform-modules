@@ -1,5 +1,5 @@
 resource "aws_autoscaling_group" "ec2_asg" {
-  name_prefix         = "${var.env}-asg-"
+  name                = "${var.env}-webapp-asg"
   desired_capacity    = var.scaling_config["desired_capacity"]
   max_size            = var.scaling_config["max_size"]
   min_size            = var.scaling_config["min_size"]
