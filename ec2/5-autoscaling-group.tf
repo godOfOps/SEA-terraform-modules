@@ -54,4 +54,5 @@ resource "aws_autoscaling_policy" "alb_target_requests" {
     }
     target_value = var.request_count_per_target
   }
+  depends_on = [aws_lb.web_alb, aws_lb_target_group.ec2_asg_tg]
 }
