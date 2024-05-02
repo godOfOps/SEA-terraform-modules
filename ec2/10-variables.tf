@@ -68,3 +68,8 @@ variable "request_count_per_target" {
   type        = number
   default     = 10.0
 }
+
+variable "notification_email_ids" {
+  description = "CIDR ranges for private subnets."
+  type        = list(string)
+}

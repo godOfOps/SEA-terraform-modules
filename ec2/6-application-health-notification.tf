@@ -6,9 +6,10 @@ resource "aws_sns_topic" "aws_tg_health_sns" {
 
 ## SNS - Subscription
 resource "aws_sns_topic_subscription" "myasg_sns_topic_subscription" {
+  count = length(var.notification_email_ids)
   topic_arn = aws_sns_topic.aws_tg_health_sns.arn
   protocol  = "email"
-  endpoint  = "ankitkrsingh13@gmail.com"
+  endpoint  = var.notification_email_ids[count.index]
 }
 
 resource "aws_cloudwatch_metric_alarm" "alb_healthy_hosts" {
