@@ -1,5 +1,5 @@
 resource "aws_route53_zone" "private" {
-  name = "example.com"
+  name = var.route_53_hosted_zone_name
 
   vpc {
     vpc_id = var.vpc_id
@@ -8,7 +8,7 @@ resource "aws_route53_zone" "private" {
 
 resource "aws_route53_record" "alb-alias" {
   zone_id = aws_route53_zone.private.zone_id
-  name    = "test.example.com"
+  name    = var.elb_domain_name
   type    = "A"
 
   alias {

@@ -43,9 +43,21 @@ variable "instance_keypair" {
 }
 
 variable "volume_size" {
-  description = "AWS EC2 Key pair that need to be associated with EC2 Instance"
+  description = "Volume Size of secondary EBS Volume in GB"
   type        = number
   default     = 10
+}
+
+variable "route_53_hosted_zone_name" {
+  description = "Route 53 hosted Zone name"
+  type        = string
+  default     = "example.com"
+}
+
+variable "elb_domain_name" {
+  description = "Domain name alias for Load Balancer"
+  type        = string
+  default     = "test.example.com"
 }
 
 variable "scaling_config" {
@@ -70,6 +82,6 @@ variable "request_count_per_target" {
 }
 
 variable "notification_email_ids" {
-  description = "CIDR ranges for private subnets."
+  description = "List of emails to send Application Health Issue Notifications"
   type        = list(string)
 }
