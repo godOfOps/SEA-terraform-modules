@@ -26,7 +26,7 @@ resource "aws_launch_template" "private_ec2_lt" {
 
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   #key_name               = var.instance_keypair
-  user_data = filebase64("${path.module}/web-app-setup.sh") #needs to be test where it take it from
+  user_data = filebase64("${path.module}/webserver-setup.sh") #needs to be test where it take it from
   #ebs_optimized          = true # Might not work with t2.micro
   #default_version = 1
   update_default_version = true
