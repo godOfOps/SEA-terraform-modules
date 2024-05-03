@@ -54,11 +54,5 @@ resource "aws_autoscaling_policy" "alb_target_requests" {
     }
     target_value = var.request_count_per_target
   }
-  depends_on = [
-    aws_lb.web_alb,
-    aws_lb_target_group.ec2_asg_tg,
-    aws_autoscaling_group.ec2_asg,
-    aws_lb_listener.http_listener,
-    aws_lb_listener.https_listener
-  ]
+  depends_on = [aws_lb_listener.https_listener] # wait for https listener to be created so that The load balancer has route traffic to the target group
 }
