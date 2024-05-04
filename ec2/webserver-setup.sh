@@ -14,6 +14,8 @@ sudo mount /dev/${BLOCK} /var/log
 UUID=$(sudo blkid -s UUID -o value /dev/${BLOCK})
 echo "UUID=${UUID}  /var/log  xfs  defaults,nofail  0  2" | sudo tee -a /etc/fstab
 
+sudo mkdir -p /var/log/httpd
+
 sudo rm -fr /var/www/html/*
 sudo git clone https://github.com/erdincakgun/RockPaperScissors.git /var/www/html/
 sed -i 's/tr/en/' /var/www/html/index.html
